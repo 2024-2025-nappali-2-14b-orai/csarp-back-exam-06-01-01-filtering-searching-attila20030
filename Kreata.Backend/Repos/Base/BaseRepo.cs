@@ -10,7 +10,7 @@ namespace Kreata.Backend.Repos.Base
         where TEntity : class, IDbEntity<TEntity>, new()
     {
         private readonly DbContext? _dbContext;
-        protected readonly DbSet<TEntity>? _dbSet;
+        protected readonly DbSet<TEntity>? _dbSet; //A DbSet az olyan mint egy sql lekérdezés
 
         public BaseRepo(TDbContext? dbContext)
         {
