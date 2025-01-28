@@ -3,40 +3,7 @@
 namespace Kreta.Shared.Models
 {
     public class Student : IDbEntity<Student>
-    {
-        public Student(Guid id,string firstName, string lastName, DateTime birthsDay, int schoolYear, SchoolClassType schoolClass, string educationLevel)
-        {
-            Id=id;
-            FirstName = firstName;
-            LastName = lastName;
-            BirthsDay = birthsDay;
-            SchoolYear = schoolYear;
-            SchoolClass = schoolClass;
-            EducationLevel = educationLevel;
-        }
-
-        public Student(string firstName, string lastName, DateTime birthsDay, int schoolYear, SchoolClassType schoolClass, string educationLevel)
-        {
-            Id=Guid.NewGuid();
-            FirstName = firstName;
-            LastName = lastName;
-            BirthsDay = birthsDay;
-            SchoolYear = schoolYear;
-            SchoolClass = schoolClass;
-            EducationLevel = educationLevel;
-        }
-
-        public Student()
-        {
-            Id = Guid.NewGuid();
-            FirstName = string.Empty;
-            LastName = string.Empty;
-            BirthsDay = new DateTime();
-            SchoolYear = 9;
-            SchoolClass = SchoolClassType.ClassA;
-            EducationLevel = string.Empty;
-        }
-
+    {   
         public Guid Id { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
