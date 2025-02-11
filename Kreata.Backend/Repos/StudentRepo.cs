@@ -23,16 +23,19 @@ namespace Kreata.Backend.Repos
             throw new NotImplementedException();
         }
 
-        public Task<int> GetNumberOfStudentByYearAsync(int year)
-        {
-            throw new NotImplementedException();
-        }
 
         public async Task<List<Student>> GetStudentByClass(int schoolYear, SchoolClassType schoolClassType)
         {
             return await _dbSet!
                 .FindByCondition<Student>(s =>s.SchoolYear==schoolYear && s.SchoolClass==schoolClassType).ToListAsync();
         }
+
+        public async Task<int> GetNumberOfStudentByYearAsync(int year)
+        {
+            return await _dbSet!.CountAsync(s => s.BirthsDay.Year == year);
+
+        }
+
 
 
     }
