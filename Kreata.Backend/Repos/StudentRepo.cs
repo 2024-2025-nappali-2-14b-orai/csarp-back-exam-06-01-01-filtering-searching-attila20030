@@ -2,6 +2,7 @@
 using Kreata.Backend.Repos.Base;
 using Kreta.Shared.Enums;
 using Kreta.Shared.Models;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace Kreata.Backend.Repos
@@ -34,8 +35,13 @@ namespace Kreata.Backend.Repos
         {
             return await _dbSet!.CountAsync(s => s.BirthsDay.Year == year);
 
-        }
+        }        
+        
+        public async Task<int> GetNumberOfStudentByYearAsync(int year, int month)//
+        {
+            return await _dbSet!.CountAsync(s => s.BirthsDay.Year == year && s.BirthsDay.Month == month);
 
+        }
 
 
     }
