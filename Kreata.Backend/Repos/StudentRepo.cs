@@ -18,10 +18,22 @@ namespace Kreata.Backend.Repos
             return await _dbSet!.FindByCondition<Student>(s => s.FirstName == firstName && s.LastName == lastName).FirstOrDefaultAsync() ?? new Student();
         }
 
+        public Task<int> GetNumberOfStudent()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<int> GetNumberOfStudentByYearAsync(int year)
+        {
+            throw new NotImplementedException();
+        }
+
         public async Task<List<Student>> GetStudentByClass(int schoolYear, SchoolClassType schoolClassType)
         {
             return await _dbSet!
                 .FindByCondition<Student>(s =>s.SchoolYear==schoolYear && s.SchoolClass==schoolClassType).ToListAsync();
         }
+
+
     }
 }
